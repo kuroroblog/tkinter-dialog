@@ -1,5 +1,4 @@
-# tkinter-canvas
-Tkinterのcanvasに関するコード
+# tkinter-dialog
+Tkinterのdialogに関するコード
 
 # 参考記事
-https://kuroro.blog/python/ANyM9WLpd0LSXRQAELOj/
