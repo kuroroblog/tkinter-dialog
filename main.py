@@ -5,6 +5,7 @@ from tkinter import filedialog
 # filedialogのaskdirectoryのdialogを表示する。
 def getAskDirectory():
     # ディクレトリを選択するためのdialogになります。
+    # 戻り値 : Chooseを選択してディレクトリを開いた場合 : ディレクトリパス, Cancelを選択した場合 : ''
     directoryName = filedialog.askdirectory()
     # レスポンスの内容を表示する。
     print("ask directory", directoryName)
@@ -12,7 +13,8 @@ def getAskDirectory():
 # filedialogのasksaveasfilenameのdialogを表示する。
 def getAskSaveAsFileName():
     # 単数ファイルを保存するためのdialogになります。
-    # ※私のMac環境ではファイル保存されませんでした。
+    # ※筆者のMac OS環境ではファイル保存されませんでした。
+    # 戻り値 : Saveを選択してファイルを保存した場合 : ファイルパス, Cancelを選択した場合 : ''
     filename = filedialog.asksaveasfilename()
     # レスポンスの内容を表示する。
     print("ask save as file name", filename)
@@ -20,6 +22,7 @@ def getAskSaveAsFileName():
 # filedialogのaskopenfilenamesのdialogを表示する。
 def getAskOpenFileNames():
     # 複数ファイルを選択するためのdialogになります。
+    # 戻り値 : Openを選択してファイルを開いた場合 : (ファイルパス1, ファイルパス2), Cancelを選択した場合 : ''
     filenames = filedialog.askopenfilenames()
     # レスポンスの内容を表示する。
     print("ask open file names", filenames)
@@ -104,7 +107,7 @@ if __name__ == "__main__":
     # getAskOpenFile()
     # getAskOpenFiles()
     # getAskSaveAsFile()
-    getAskOpenFileName()
+    # getAskOpenFileName()
     # getAskOpenFileNames()
     # getAskSaveAsFileName()
-    # getAskDirectory()
+    getAskDirectory()
