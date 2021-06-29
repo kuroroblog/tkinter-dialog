@@ -92,6 +92,79 @@ def getAskString():
     # レスポンスの内容を表示する。
     print("askstring", res)
 
+
+# simpledialog.Dialogクラスを継承したCustomDialogクラスを作成する。
+class CustomDialog(simpledialog.Dialog):
+    # じゃんけんの手の情報を格納する変数
+    handList = [
+        'グー',
+        'チョキ',
+        'パー',
+    ]
+    # 現在選択されているラジオボタンの値を格納する変数
+    variable = None
+
+    def body(self, master):
+        # bodyを親要素として、label Widgetを作成する。
+        # text : テキスト情報
+        # Labelについて : https://kuroro.blog/python/Pj4Z7JBNRvcHZvtFqiKD/
+        label = tk.Label(master, text='じゃんけんの手を選択してください。')
+        # bodyを親要素として、label Widgetをどのように配置するのか?
+        # packについて : https://kuroro.blog/python/UuvLfIBIEaw98BzBZ3FJ/
+        label.pack()
+
+        # 現在選択されているラジオボタンの値を文字列変数として扱う。
+        # StringVarについて : https://kuroro.blog/python/K53voPjJuKFfYrjmP8FP/
+        self.variable = tk.StringVar()
+        for hand in self.handList:
+            # bodyを親要素として、radiobutton Widgetを作成する。
+            # value : ラジオボタン自身が持つ値の設定。グー or チョキ or パー
+            # variable : 現在選択中のラジオボタンの値を設定。文字列変数(self.variable)として値を持たせることで、可変として扱い、その他のラジオボタンへ値を共有して選択の状態を管理できる。
+            # command : ラジオボタンを選択した場合に、実行する関数を設定。self.switchButtonStateとする。
+            # text : ラジオボタンを説明するテキスト。
+            # Radiobuttonについて : https://kuroro.blog/python/ztJbt5uabbTBMCGcljHc/
+            radiobutton = tk.Radiobutton(master, value=hand, variable=self.variable, command=self.switchButtonState, text=hand)
+            # bodyを親要素として、radiobutton Widgetをどのように配置するのか?
+            # packについて : https://kuroro.blog/python/UuvLfIBIEaw98BzBZ3FJ/
+            radiobutton.pack(side=tk.LEFT, padx=5, pady=5)
+
+    def buttonbox(self):
+        # button boxを親要素として、frame Widget(Frame)を作成する。
+        frame = tk.Frame(self)
+        # button boxを親要素として、frame Widget(Frame)をどのように配置するのか?
+        # packについて : https://kuroro.blog/python/UuvLfIBIEaw98BzBZ3FJ/
+        frame.pack()
+
+        # frame Widget(Frame)を親要素として、button Widgetを作成する。
+        # text : テキスト情報
+        # width : 幅の設定
+        # command : ボタンを選択した場合に、実行する関数を設定する。self.okとする。
+        # state : ボタンの状態を設定する。ラジオボタンが選択されていない初期状態では、tk.DISABLEDにして選択できないようにする。
+        # Buttonについて : https://kuroro.blog/python/oFju6EngDtcYtIiMIDf1/
+        self.selectBtn = tk.Button(frame, text="Select", width=10, command=self.ok, state=tk.DISABLED)
+        # frame Widget(Frame)を親要素として、button Widgetをどのように配置するのか?
+        # packについて : https://kuroro.blog/python/UuvLfIBIEaw98BzBZ3FJ/
+        self.selectBtn.pack(side=tk.LEFT, padx=5, pady=5)
+
+        # frame Widget(Frame)を親要素として、button Widgetを作成する。
+        # text : テキスト情報
+        # width : 幅の設定
+        # command : ボタンを選択した場合に、実行する関数を設定する。self.cancelとする。
+        # Buttonについて : https://kuroro.blog/python/oFju6EngDtcYtIiMIDf1/
+        self.cancelBtn = tk.Button(frame, text="Cancel", width=10, command=self.cancel)
+        # frame Widget(Frame)を親要素として、button Widgetをどのように配置するのか?
+        # packについて : https://kuroro.blog/python/UuvLfIBIEaw98BzBZ3FJ/
+        self.cancelBtn.pack(side=tk.LEFT, padx=5, pady=5)
+
+    def switchButtonState(self):
+        # ラジオボタンが選択された場合に、Selectボタンを有効化する。
+        if self.selectBtn['state'] == tk.DISABLED:
+            self.selectBtn['state'] = tk.NORMAL
+
+    def apply(self):
+        # dialogを閉じた後に、ラジオボタンの選択結果を出力する。
+        print(self.variable.get())
+
 # Tkinter初学者参考 : https://docs.python.org/ja/3/library/tkinter.html#a-simple-hello-world-program
 if __name__ == "__main__":
     root = tk.Tk()
@@ -111,3 +184,5 @@ if __name__ == "__main__":
     # getAskOpenFileNames()
     # getAskSaveAsFileName()
     # getAskDirectory()
+
+    CustomDialog(root)
