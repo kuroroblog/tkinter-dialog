@@ -185,4 +185,4 @@ if __name__ == "__main__":
     # getAskSaveAsFileName()
     # getAskDirectory()
 
-    CustomDialog(root)
+    # CustomDialog(root)
