@@ -57,27 +57,30 @@ def getAskOpenFile():
 
 # simpledialogのaskfloatのdialogを表示する。
 def getAskFloat():
-    # 質問を提供するsimpledialogになります。
+    # 浮動小数点数で答える質問を提供するsimpledialogになります。
     # 第一引数 : タイトル文字列
     # 第二引数 : 値入力を促すメッセージ内容
+    # 戻り値 : OKを選択した場合 : 浮動小数点数, Cancelを選択した場合 : None
     res = simpledialog.askfloat("好きな浮動小数点数はなんですか?", "好きな浮動小数点数を入力してください。")
     # レスポンスの内容を表示する。
     print("askfloat", res)
 
 # simpledialogのaskintegerのdialogを表示する。
 def getAskInteger():
-    # 質問を提供するsimpledialogになります。
+    # 整数で答える質問を提供するsimpledialogになります。
     # 第一引数 : タイトル文字列
     # 第二引数 : 値入力を促すメッセージ内容
+    # 戻り値 : OKを選択した場合 : 整数, Cancelを選択した場合 : None
     res = simpledialog.askinteger("好きな整数はなんですか?", "好きな整数を入力してください。")
     # レスポンスの内容を表示する。
     print("askinteger", res)
 
 # simpledialogのaskstringのdialogを表示する。
 def getAskString():
-    # 質問を提供するsimpledialogになります。
+    # 文字列で答える質問を提供するsimpledialogになります。
     # 第一引数 : タイトル文字列
     # 第二引数 : 値入力を促すメッセージ内容
+    # 戻り値 : OKを選択した場合 : 文字列, Cancelを選択した場合 : None
     res = simpledialog.askstring("アンパンマンで好きなキャラクターは?", "好きなキャラクターを入力してください。")
     # レスポンスの内容を表示する。
     print("askstring", res)
