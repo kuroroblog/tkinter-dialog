@@ -92,8 +92,9 @@ def getAskString():
     # レスポンスの内容を表示する。
     print("askstring", res)
 
-
 # simpledialog.Dialogクラスを継承したCustomDialogクラスを作成する。
+# 1. 新しくクラスを作成する
+# 2. 新しく作成するクラスにsimpledialog.Dialogのクラスを継承する
 class CustomDialog(simpledialog.Dialog):
     # じゃんけんの手の情報を格納する変数
     handList = [
@@ -104,6 +105,7 @@ class CustomDialog(simpledialog.Dialog):
     # 現在選択されているラジオボタンの値を格納する変数
     variable = None
 
+    # 3. body関数, buttonbox関数, apply関数をオーバーライドしてカスタマイズする
     def body(self, master):
         # bodyを親要素として、label Widgetを作成する。
         # text : テキスト情報
@@ -128,10 +130,11 @@ class CustomDialog(simpledialog.Dialog):
             # packについて : https://kuroro.blog/python/UuvLfIBIEaw98BzBZ3FJ/
             radiobutton.pack(side=tk.LEFT, padx=5, pady=5)
 
+    # 3. body関数, buttonbox関数, apply関数をオーバーライドしてカスタマイズする
     def buttonbox(self):
-        # button boxを親要素として、frame Widget(Frame)を作成する。
+        # buttonboxを親要素として、frame Widget(Frame)を作成する。
         frame = tk.Frame(self)
-        # button boxを親要素として、frame Widget(Frame)をどのように配置するのか?
+        # buttonboxを親要素として、frame Widget(Frame)をどのように配置するのか?
         # packについて : https://kuroro.blog/python/UuvLfIBIEaw98BzBZ3FJ/
         frame.pack()
 
@@ -161,9 +164,11 @@ class CustomDialog(simpledialog.Dialog):
         if self.selectBtn['state'] == tk.DISABLED:
             self.selectBtn['state'] = tk.NORMAL
 
+    # 3. body関数, buttonbox関数, apply関数をオーバーライドしてカスタマイズする
     def apply(self):
         # dialogを閉じた後に、ラジオボタンの選択結果を出力する。
         print(self.variable.get())
+
 
 # Tkinter初学者参考 : https://docs.python.org/ja/3/library/tkinter.html#a-simple-hello-world-program
 if __name__ == "__main__":
