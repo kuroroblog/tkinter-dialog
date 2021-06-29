@@ -27,6 +27,7 @@ def getAskOpenFileNames():
 # filedialogのaskopenfilenameのdialogを表示する。
 def getAskOpenFileName():
     # 単数ファイルを選択するためのdialogになります。
+    # 戻り値 : Openを選択してファイルを開いた場合 : ファイルパス, Cancelを選択した場合 : ''
     filename = filedialog.askopenfilename()
     # レスポンスの内容を表示する。
     print("ask open file name", filename)
@@ -35,6 +36,7 @@ def getAskOpenFileName():
 def getAskSaveAsFile():
     # 単数ファイルを保存するためのdialogになります。
     # write only
+    # 戻り値 : Saveを選択してファイルを保存した場合 : ファイル情報, Cancelを選択した場合 : None
     fileData = filedialog.asksaveasfile()
     # レスポンスの内容を表示する。
     print("ask save as file", fileData)
@@ -43,6 +45,7 @@ def getAskSaveAsFile():
 def getAskOpenFiles():
     # 複数ファイル選択するためのdialogになります。
     # read only
+    # 戻り値 : Openを選択してファイルを開いた場合 : [ファイル情報1, ファイル情報2, ...], Cancelを選択した場合 : ''
     fileData = filedialog.askopenfiles()
     # レスポンスの内容を表示する。
     print("ask open files", fileData)
@@ -51,6 +54,7 @@ def getAskOpenFiles():
 def getAskOpenFile():
     # 単数ファイル選択するためのdialogになります。
     # read only
+    # 戻り値 : Openを選択してファイルを開いた場合 : ファイル情報, Cancelを選択した場合 : None
     fileData = filedialog.askopenfile()
     # レスポンスの内容を表示する。
     print("ask open file", fileData)
@@ -100,7 +104,7 @@ if __name__ == "__main__":
     # getAskOpenFile()
     # getAskOpenFiles()
     # getAskSaveAsFile()
-    # getAskOpenFileName()
+    getAskOpenFileName()
     # getAskOpenFileNames()
     # getAskSaveAsFileName()
     # getAskDirectory()
