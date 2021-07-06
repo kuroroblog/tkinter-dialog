@@ -133,6 +133,7 @@ class CustomDialog(simpledialog.Dialog):
     # 3. body関数, buttonbox関数, apply関数をオーバーライドしてカスタマイズする
     def buttonbox(self):
         # buttonboxを親要素として、frame Widget(Frame)を作成する。
+        # Frameについて : https://kuroro.blog/python/P20XOidA5nh583fYRvxf/
         frame = tk.Frame(self)
         # buttonboxを親要素として、frame Widget(Frame)をどのように配置するのか?
         # packについて : https://kuroro.blog/python/UuvLfIBIEaw98BzBZ3FJ/
